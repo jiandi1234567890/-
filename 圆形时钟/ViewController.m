@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DrawLine.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight  [UIScreen mainScreen].bounds.size.height
@@ -16,6 +18,7 @@
     CALayer *minute;
     CALayer *hour;
     UILabel *showtime;
+    NSString *number;
 }
 
 
@@ -23,41 +26,73 @@
 
 @implementation ViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UIView   *mainview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     mainview.backgroundColor=[UIColor whiteColor];
+   
     [self.view addSubview:mainview];
+    
+    
+    //画表盘圆框
+       CAShapeLayer  *layer=[CAShapeLayer layer];
+        CGMutablePathRef layerpath =  CGPathCreateMutable();
+        layer.lineWidth = 8.0f ;
+         layer.strokeColor =[UIColor colorWithRed:0.81 green:0.89 blue:0.91 alpha:1.00].CGColor;
+        layer.fillColor = [UIColor whiteColor].CGColor;
+        CGPathAddEllipseInRect(layerpath, nil, CGRectMake(ScreenWidth/2-190/2,  ScreenHeight/3-190/2, 190, 190));
+        layer.path = layerpath;
+    
+        CGPathRelease(layerpath);
+        [mainview.layer addSublayer:layer];
+
+    
+   //表盘上的刻度数字
+    for(int i=1;i<=12;i++){
+        UILabel *label=[[UILabel alloc]init];
+        label.backgroundColor=[UIColor clearColor];
+        label.textAlignment=NSTextAlignmentCenter;
+        
+        int  x1   =   (ScreenWidth/2-10)   +   162/2   *   cos(2*M_PI/12*i-M_PI/2);
+        int y1   =  (ScreenHeight/3-10)   +   162/2   *   sin(2*M_PI/12*i-M_PI/2);
+        label.frame=CGRectMake(x1, y1, 20, 20);
+        NSString *string=[NSString stringWithFormat:@"%d",i];
+        label.text=string;
+        [mainview addSubview:label];
+    }
+    
+
+    
+    
+    
 
     //钟表背景图片
-    CALayer *clocklayer=[[CALayer layer]init];
-    clocklayer.frame=CGRectMake(0, 0, 200, 200);
-    clocklayer.position=CGPointMake(ScreenWidth/2, ScreenHeight/3);
-    clocklayer.contents=(id)[UIImage imageNamed:@"clock.png"].CGImage;
-    [mainview.layer addSublayer:clocklayer];
+//    CALayer *clocklayer=[[CALayer layer]init];
+//    clocklayer.frame=CGRectMake(0, 0, 200, 200);
+//    clocklayer.position=CGPointMake(ScreenWidth/2, ScreenHeight/3);
+//    clocklayer.contents=(id)[UIImage imageNamed:@"clock.png"].CGImage;
+//    [mainview.layer addSublayer:clocklayer];
     
-    //
-    showtime=[[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2-100, ScreenHeight/3+150, 200, 40)];
-    showtime.backgroundColor=[UIColor whiteColor];
-    [mainview addSubview:showtime];
-    //初始化时针
+        //初始化时针
     hour=[[CALayer layer]init];
-    hour.frame=CGRectMake(0, 0, 67, 5);
-    hour.position=clocklayer.position;
+    hour.frame=CGRectMake(0, 0, 75, 5);
+    hour.position=CGPointMake(ScreenWidth/2, ScreenHeight/3);
     hour.backgroundColor=[UIColor blackColor].CGColor;
     //锚点
-    hour.anchorPoint=CGPointMake(0, 0.5);
+    hour.anchorPoint=CGPointMake(0.15, 0.5);
     [mainview.layer addSublayer:hour];
     //self->hour=hour;
     
     
     //初始化分针
     minute=[[CALayer layer]init];
-    minute.frame=CGRectMake(0, 0, 76, 3);
-    minute.position=clocklayer.position;
+    minute.frame=CGRectMake(0, 0, 83, 3);
+    minute.position=CGPointMake(ScreenWidth/2, ScreenHeight/3);
     minute.backgroundColor=[UIColor blackColor].CGColor;
-    minute.anchorPoint=CGPointMake(0, 0.5);
+    minute.anchorPoint=CGPointMake(0.15, 0.5);
     [mainview.layer addSublayer:minute];
     
     
@@ -65,11 +100,19 @@
     //初始化秒针
     
     seconds=[[CALayer layer]init];
-    seconds.frame=CGRectMake(0, 0, 87, 2);
-    seconds.position=clocklayer.position;
+    seconds.frame=CGRectMake(0, 0, 93, 2);
+    seconds.position=CGPointMake(ScreenWidth/2, ScreenHeight/3);
     seconds.backgroundColor=[UIColor redColor].CGColor;
-    seconds.anchorPoint=CGPointMake(0, 0.5);
+    seconds.anchorPoint=CGPointMake(0.15, 0.5);
     [mainview.layer addSublayer:seconds];
+    
+    
+    
+    //label 显示本地时间
+    showtime=[[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth/2-100, ScreenHeight/3+150, 200, 40)];
+    showtime.backgroundColor=[UIColor whiteColor];
+    [mainview addSubview:showtime];
+
     
     //用displaylink的方法显示当前时间
     CADisplayLink *link=[CADisplayLink displayLinkWithTarget:self selector:@selector(changetime)];
@@ -78,7 +121,10 @@
    // 用定时器显示时间
 //    NSTimer *timer=[NSTimer scheduledTimerWithTimeInterval:0.999f target:self selector:@selector(changetime) userInfo:nil repeats:YES];
     
+    
 }
+
+
 
 
 -(void) changetime

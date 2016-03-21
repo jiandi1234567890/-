@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D891B14F1CA03339004C4173 /* DrawLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D891B14E1CA03339004C4173 /* DrawLine.m */; };
 		D8FB606D1C9F8187009D8B9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB606C1C9F8187009D8B9F /* main.m */; };
 		D8FB60701C9F8187009D8B9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB606F1C9F8187009D8B9F /* AppDelegate.m */; };
 		D8FB60731C9F8187009D8B9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB60721C9F8187009D8B9F /* ViewController.m */; };
@@ -16,6 +17,7 @@
 		D8FB60861C9F8187009D8B9F /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB60851C9F8187009D8B9F /* ____Tests.m */; };
 		D8FB60911C9F8187009D8B9F /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB60901C9F8187009D8B9F /* ____UITests.m */; };
 		D8FB609F1C9F869F009D8B9F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FB609E1C9F869F009D8B9F /* clock.png */; };
+		D8FB60AB1C9FF58A009D8B9F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FB60AA1C9FF58A009D8B9F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D891B14D1CA03339004C4173 /* DrawLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLine.h; sourceTree = "<group>"; };
+		D891B14E1CA03339004C4173 /* DrawLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawLine.m; sourceTree = "<group>"; };
 		D8FB60681C9F8187009D8B9F /* 圆形时钟.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "圆形时钟.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FB606C1C9F8187009D8B9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8FB606E1C9F8187009D8B9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 		D8FB60901C9F8187009D8B9F /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		D8FB60921C9F8187009D8B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8FB609E1C9F869F009D8B9F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		D8FB60AA1C9FF58A009D8B9F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FB60AB1C9FF58A009D8B9F /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +113,8 @@
 				D8FB606F1C9F8187009D8B9F /* AppDelegate.m */,
 				D8FB60711C9F8187009D8B9F /* ViewController.h */,
 				D8FB60721C9F8187009D8B9F /* ViewController.m */,
+				D891B14D1CA03339004C4173 /* DrawLine.h */,
+				D891B14E1CA03339004C4173 /* DrawLine.m */,
 				D8FB60741C9F8187009D8B9F /* Main.storyboard */,
 				D8FB60771C9F8187009D8B9F /* Assets.xcassets */,
 				D8FB60791C9F8187009D8B9F /* LaunchScreen.storyboard */,
@@ -119,6 +127,7 @@
 		D8FB606B1C9F8187009D8B9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8FB60AA1C9FF58A009D8B9F /* QuartzCore.framework */,
 				D8FB609E1C9F869F009D8B9F /* clock.png */,
 				D8FB606C1C9F8187009D8B9F /* main.m */,
 			);
@@ -280,6 +289,7 @@
 				D8FB60731C9F8187009D8B9F /* ViewController.m in Sources */,
 				D8FB60701C9F8187009D8B9F /* AppDelegate.m in Sources */,
 				D8FB606D1C9F8187009D8B9F /* main.m in Sources */,
+				D891B14F1CA03339004C4173 /* DrawLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +513,7 @@
 				D8FB60971C9F8187009D8B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8FB60981C9F8187009D8B9F /* Build configuration list for PBXNativeTarget "圆形时钟Tests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +522,7 @@
 				D8FB609A1C9F8187009D8B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8FB609B1C9F8187009D8B9F /* Build configuration list for PBXNativeTarget "圆形时钟UITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +531,7 @@
 				D8FB609D1C9F8187009D8B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
