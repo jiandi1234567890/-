@@ -15,6 +15,7 @@
 		D8FB607B1C9F8187009D8B9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FB60791C9F8187009D8B9F /* LaunchScreen.storyboard */; };
 		D8FB60861C9F8187009D8B9F /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB60851C9F8187009D8B9F /* ____Tests.m */; };
 		D8FB60911C9F8187009D8B9F /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FB60901C9F8187009D8B9F /* ____UITests.m */; };
+		D8FB609F1C9F869F009D8B9F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FB609E1C9F869F009D8B9F /* clock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D8FB608C1C9F8187009D8B9F /* 圆形时钟UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "圆形时钟UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FB60901C9F8187009D8B9F /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		D8FB60921C9F8187009D8B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8FB609E1C9F869F009D8B9F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		D8FB606B1C9F8187009D8B9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8FB609E1C9F869F009D8B9F /* clock.png */,
 				D8FB606C1C9F8187009D8B9F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -246,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FB609F1C9F869F009D8B9F /* clock.png in Resources */,
 				D8FB607B1C9F8187009D8B9F /* LaunchScreen.storyboard in Resources */,
 				D8FB60781C9F8187009D8B9F /* Assets.xcassets in Resources */,
 				D8FB60761C9F8187009D8B9F /* Main.storyboard in Resources */,
